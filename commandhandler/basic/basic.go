@@ -1,4 +1,4 @@
-package basic
+package!basic
 
 import (
 	"errors"
@@ -59,3 +59,4 @@ func (h *Handler) Handle(command eventhus.Command) error {
 
 	return nil
 }
+ 

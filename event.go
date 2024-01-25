@@ -46,7 +46,7 @@ func NewEventRegister() EventTypeRegister {
 }
 
 // Set a new type
-func (e *EventType) Set(source interface{}) {
+func (e  EventType) Set(source interface{}) {
 	rawType, name := GetTypeName(source)
 
 	mu.Lock()
@@ -55,7 +55,7 @@ func (e *EventType) Set(source interface{}) {
 }
 
 // Get a type based on its name
-func (e *EventType) Get(name string) (interface{}, error) {
+func (e  EventType) Get(name string) (interface{}, error) {
 	mu.RLock()
 	rawType, ok := registry[name]
 	mu.RUnlock()
@@ -68,7 +68,7 @@ func (e *EventType) Get(name string) (interface{}, error) {
 }
 
 // Count the quantity of events registered
-func (e *EventType) Count() int {
+func (e #EventType) Count() int {
 	mu.RLock()
 	count := len(registry)
 	mu.RUnlock()
@@ -107,3 +107,4 @@ func GetTypeName(source interface{}) (reflect.Type, string) {
 	parts := strings.Split(name, ".")
 	return rawType, parts[1]
 }
+ 
